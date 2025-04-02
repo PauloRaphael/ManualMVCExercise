@@ -47,6 +47,7 @@ public class BankView {
 
     public String getUserName() {
         System.out.print("Digite o nome do dono da conta: ");
+        scan.nextLine();
         return scan.nextLine();
     }
 
