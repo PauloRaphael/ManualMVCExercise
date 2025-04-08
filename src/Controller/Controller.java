@@ -36,7 +36,12 @@ public class Controller {
 
         if (init == 'S') {
             while (running) {
-                char action = view.chooseAction();
+                char action = ' ';
+                if(loggedInAccount == null) {
+                    action = view.chooseMenuAction();
+                } else {
+                    action = view.chooseLoggedAction();
+                }
                 running = handleAction(action);
             }
         }
@@ -69,6 +74,7 @@ public class Controller {
 
     public void login() {
         int accountNumber = view.getAccountNumber();
+        view.cleanInput();
         String password = view.getUserPassword();
         Account account = getAccountByNumber(accountNumber);
 
@@ -136,7 +142,7 @@ public class Controller {
     }
 
     public boolean handleAction(char action) {
-        
+
         switch (action) {
             case 'N':
                 createPerson();

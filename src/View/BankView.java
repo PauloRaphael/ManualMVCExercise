@@ -5,6 +5,8 @@ import Model.Person;
 
 import java.sql.SQLOutput;
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class BankView {
@@ -30,24 +32,54 @@ public class BankView {
         }
     }
 
-    public char chooseAction() {
+    public char chooseMenuAction() {
+
+        ArrayList<Character> options = new ArrayList<>(Arrays.asList('N', 'X', 'C', 'D', 'L', 'E'));
+
         System.out.println("O que deseja fazer agora?");
         System.out.println("[N] Cadastrar-se");
         System.out.println("[X] Deletar cadastro");
         System.out.println("[C] Criar conta");
         System.out.println("[D] Deletar conta");
+        System.out.println("[L] Logar");
+        System.out.println("[E] Sair");
+
+        char action = scan.next().toUpperCase().charAt(0);
+
+        scan.nextLine();
+
+        if(!options.contains(action)) {
+            return ' ';
+        }
+
+        return action;
+    }
+
+    public char chooseLoggedAction() {
+
+        ArrayList<Character> options = new ArrayList<>(Arrays.asList('S', 'P', 'T', 'V', 'O', 'E'));
+
+        System.out.println("O que deseja fazer agora?");
         System.out.println("[S] Sacar");
         System.out.println("[P] Depositar");
         System.out.println("[T] Transferir");
         System.out.println("[V] Visualizar saldo");
+        System.out.println("[O] Deslogar");
         System.out.println("[E] Sair");
 
-        return scan.next().toUpperCase().charAt(0);
+        char action = scan.next().toUpperCase().charAt(0);
+
+        scan.nextLine();
+
+        if(!options.contains(action)) {
+            return ' ';
+        }
+
+        return action;
     }
 
     public String getUserName() {
         System.out.print("Digite o nome do dono da conta: ");
-        scan.nextLine();
         return scan.nextLine();
     }
 
@@ -108,9 +140,10 @@ public class BankView {
     }
 
     public void showBalance(Account account) {
-        System.out.print("O saldo da conta do usuario " + account.getOwner() + " é:  " + account.getBalance());
+        System.out.print("O saldo da conta do usuario " + account.getOwner().getName() + " é:  " + account.getBalance());
     }
 
+    public void cleanInput() { scan.nextLine(); }
     public void invalidPassword() {
         System.out.print("Senha invaliada!");
     }
