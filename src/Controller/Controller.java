@@ -143,42 +143,50 @@ public class Controller {
 
     public boolean handleAction(char action) {
 
-        switch (action) {
-            case 'N':
+        return switch (action) {
+            case 'N' -> {
                 createPerson();
-                return true;
-            case 'X':
+                yield true;
+            }
+            case 'X' ->
                 // Deletar cadastro
-                return true;
-            case 'C':
+                    true;
+            case 'C' -> {
                 createAccount();
-                return true;
-            case 'L':
+                yield true;
+            }
+            case 'L' -> {
                 login();
-                return true;
-            case 'O':
+                yield true;
+            }
+            case 'O' -> {
                 logout();
-                return true;
-            case 'D':
+                yield true;
+            }
+            case 'D' ->
                 // Deletar conta
-                return true;
-            case 'S':
+                    true;
+            case 'S' -> {
                 withdraw();
-                return true;
-            case 'P':
+                yield true;
+            }
+            case 'P' -> {
                 deposit();
-                return true;
-            case 'T':
+                yield true;
+            }
+            case 'T' -> {
                 transfer();
-                return true;
-            case 'V':
+                yield true;
+            }
+            case 'V' -> {
                 view.showBalance(loggedInAccount);
-                return true;
-            case 'E':
-                return false;
-            default:
+                yield true;
+            }
+            case 'E' -> false;
+            default -> {
                 view.genericError("Invalid action");
-                return true;
-        }
+                yield true;
+            }
+        };
     }
 }
