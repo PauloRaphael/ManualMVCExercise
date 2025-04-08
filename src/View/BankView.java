@@ -3,7 +3,6 @@ package View;
 import Model.Account;
 import Model.Person;
 
-import java.sql.SQLOutput;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -123,13 +122,13 @@ public class BankView {
         return scan.nextDouble();
     }
 
-    public void userCreationSucess(Person owner) {
+    public void userCreationSuccess(Person owner) {
         System.out.println("Usuario criado com sucesso!");
         System.out.println("Nome:  " + owner.getName());
         System.out.println("Cpf:  " + owner.getCpf());
     }
 
-    public void accountCreationSucess(int accountNumber) {
+    public void accountCreationSuccess(int accountNumber) {
         System.out.println("Conta criada com sucesso!");
         System.out.println("Anote o numero da sua conta para uso futuro:  " + accountNumber);
     }
@@ -144,15 +143,16 @@ public class BankView {
     }
 
     public void cleanInput() { scan.nextLine(); }
+
     public void invalidPassword() {
         System.out.print("Senha invaliada!");
     }
 
-    public void loginSucess() {
+    public void loginSuccess() {
         System.out.println("Logado com sucesso!");
     }
 
-    public void logoutSucess() { System.out.println("Deslogado com sucesso"); }
+    public void logoutSuccess() { System.out.println("Deslogado com sucesso"); }
 
     public void genericError(String error) { System.out.println("There was an error: " + error); }
 }

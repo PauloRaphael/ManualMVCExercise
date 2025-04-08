@@ -48,7 +48,6 @@ public class Controller {
         System.out.println("Obrigado por usar o Bank Crowck! Até a próxima.");
     }
 
-
     public void createPerson() {
         String name = view.getUserName();
         String cpf = view.getUserCpf();
@@ -57,7 +56,7 @@ public class Controller {
         Person person = Person.getPerson(name, cpf, Date.from(localDob.atStartOfDay(ZoneId.systemDefault()).toInstant()));
         people.add(person);
 
-        view.userCreationSucess(person);
+        view.userCreationSuccess(person);
     }
 
     public void createAccount() {
@@ -69,7 +68,7 @@ public class Controller {
         Account newAccount = Account.getAccount(owner, initialBalance, password);
         accounts.add(newAccount);
 
-        view.accountCreationSucess(newAccount.getAccountNumber());
+        view.accountCreationSuccess(newAccount.getAccountNumber());
     }
 
     public void login() {
@@ -80,7 +79,7 @@ public class Controller {
 
         if (authenticateUser(password, account)) {
             loggedInAccount = account;
-            view.loginSucess();
+            view.loginSuccess();
         } else {
             view.invalidPassword();
         }
@@ -88,7 +87,7 @@ public class Controller {
 
     public void logout() {
         loggedInAccount = null;
-        view.logoutSucess();
+        view.logoutSuccess();
     }
 
     public void changePassword() {
