@@ -8,6 +8,11 @@ public class Main {
         BankView bankView = new BankView();
         Controller controller = Controller.getController(bankView);
 
-        controller.initApp();
+
+        try {
+            controller.initApp();
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
     }
 }

@@ -134,12 +134,12 @@ public class BankView {
     }
 
     public double userTransfer() {
-        System.out.print("Digite o valor de transferencia");
+        System.out.print("Digite o valor de transferencia: ");
         return scan.nextDouble();
     }
 
     public void showBalance(Account account) {
-        System.out.print("O saldo da conta do usuario " + account.getOwner().getName() + " é:  " + account.getBalance());
+        System.out.println("O saldo da conta do usuario " + account.getOwner().getName() + " é:  " + account.getBalance());
     }
 
     public void cleanInput() { scan.nextLine(); }
